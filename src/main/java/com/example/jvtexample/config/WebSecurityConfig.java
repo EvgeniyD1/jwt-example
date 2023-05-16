@@ -23,6 +23,7 @@ public class WebSecurityConfig {
 
     private final JwtTokenFilter jwtTokenFilter;
     private final AuthEntryPointJwt authEntryPointJwt;
+    private final CustomAccessDeniedHandler accessDeniedHandler;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
@@ -40,6 +41,7 @@ public class WebSecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable()
 //                .exceptionHandling().authenticationEntryPoint(authEntryPointJwt)
+//                .accessDeniedHandler(accessDeniedHandler)
 //                .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
